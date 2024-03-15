@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Create Room
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/createRoom.css">
+    <script type="module" src="/js/createRoom.js"></script>
+</head>
+
+<body id="create-room-page">
+    <div id="create-room-content">
+        <div>
+            <input class="input-class" type="text" id="name-input" placeholder="Enter Name" required>
+        </div>
+        <div class="create-room-text">
+            <input class="input-class" id="code-readonly" type="text" placeholder="Generate code first" readonly>
+            <button id="copy-btn">
+                <i style="font-size:24px" class="fa">&#xf0c5;</i>
+            </button>
+        </div>
+        <div class="create-room-text">
+            <p>
+                <button class="btn" id="generate-code-btn">Generate Room Code</button>
+            </p>
+            <p>
+                <button class="btn">Join Room</button>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

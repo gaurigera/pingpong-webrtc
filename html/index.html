@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Ping Pong Game
+    </title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+
+<body>
+    <div class="room-buttons">
+        <button id="create-room-button">Create Room</button>
+        <button id="join-room-button">Join Room</button>
+    </div>
+
+    <div>
+        <button id="startButton">Start Audio</button>
+        <button id="stopButton" disabled>Stop Audio</button>
+    </div>
+
+    <audio id="localAudio" autoplay muted></audio>
+
+    <script>
+        // Get UI elements
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const localAudio = document.getElementById('localAudio');
+
+        // Initialize getUserMedia constraints
+        const constraints = { audio: true, video: false };
+
+        let localStream;
+
+        // Start capturing audio when the start button is clicked
+        startButton.addEventListener('click', async () => {
+            try {
+                // Get user media
+                localStream = await navigator.mediaDevices.getUserMedia(constraints);
+
+                // Display local audio
+                localAudio.srcObject = localStream;
+
+                // Enable stop button and disable start button
+                startButton.disabled = true;
+                stopButton.disabled = false;
+            } catch (error) {
+                console.error('Error accessing user media:', error);
+            }
+        });
+
+        // Stop capturing audio when the stop button is clicked
+        stopButton.addEventListener('click', () => {
+            // Stop tracks in the local stream
+            localStream.getTracks().forEach(track => track.stop());
+
+            // Remove local audio source
+            localAudio.srcObject = null;
+
+            // Enable start button and disable stop button
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        });
+    </script>
+
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

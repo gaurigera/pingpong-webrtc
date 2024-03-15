@@ -1,0 +1,21 @@
+#create-room-page {
+    background-color: cornflowerblue;
+}
+#create-room-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.input-class {
+    font-size: 20px;
+    padding: 10px;
+}
+.btn {
+    padding: 8px;
+}
+#copy-btn {
+    padding: 5px;
+    background-color: white;
+    border-color: white;
+}
